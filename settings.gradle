@@ -1,0 +1,48 @@
+pluginManagement {
+    Properties properties = new Properties()
+    properties.load(new File(rootDir.absolutePath + "/local.properties").newDataInputStream())
+    def privmxGithubMavenUsername = properties.getProperty("privmxGithubMavenUsername")
+    def privmxGithubMavenPassword = properties.getProperty("privmxGithubMavenPassword")
+
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            name="PrivmxGithubMaven"
+            url = uri("https://maven.pkg.github.com/simplito/privmx-maven-repository")
+            credentials{
+                username = privmxGithubMavenUsername
+                password = privmxGithubMavenPassword
+            }
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    Properties properties = new Properties()
+    properties.load(new File(rootDir.absolutePath + "/local.properties").newDataInputStream())
+    def privmxGithubMavenUsername = properties.getProperty("privmxGithubMavenUsername")
+    def privmxGithubMavenPassword = properties.getProperty("privmxGithubMavenPassword")
+
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name="PrivmxGithubMaven"
+            url = uri("https://maven.pkg.github.com/simplito/privmx-maven-repository")
+            credentials{
+                username = privmxGithubMavenUsername
+                password = privmxGithubMavenPassword
+            }
+        }
+    }
+}
+rootProject.name = 'Privmx Endpoint Minimal Java'
