@@ -1,0 +1,23 @@
+import com.simplito.tools.gradle.privmx_endpoint_install_native.SupportedPlatforms
+
+plugins {
+    id 'java'
+    id "com.simplito.privmx-endpoint-install-native" version "1.0"
+}
+
+privmxEndpointInstallJni{
+    version = "2.0"
+    platforms = [
+            SupportedPlatforms.Darwin.arm64.platform,
+    ]
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation("com.simplito.java:privmx-endpoint:2.0")
+}
+
+test {
+    useJUnitPlatform()
+}
