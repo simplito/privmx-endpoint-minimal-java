@@ -2,10 +2,12 @@ import com.simplito.tools.gradle.privmx_endpoint_install_native.SupportedPlatfor
 
 plugins {
     id 'java'
-    id "com.simplito.privmx-endpoint-install-native" version "1.0"
+    id "com.simplito.privmx-endpoint-install-native" version "1.1"
 }
 
-privmxEndpointInstallJni{
+version = "2.0.1"
+
+privmxEndpointInstallJni {
     version = "2.0"
     platforms = [
             SupportedPlatforms.Darwin.arm64.platform,
