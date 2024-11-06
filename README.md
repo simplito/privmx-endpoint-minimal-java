@@ -1,10 +1,10 @@
-# Privmx Endpoint Minimal Java
+# PrivMX Endpoint Minimal Java
 
 Console app written in Java demonstrating the use
-of [Privmx Endpoint Java library](https://github.com/simplito/privmx-endpoint-java).
+of [PrivMX Endpoint Java library](https://github.com/simplito/privmx-endpoint-java).
 
 Install Chatee Server and PrivMX Bridge on your local infrastructure to use this application. For detailed
-installation instructions, go to the [Privmx Bridge](https://github.com/simplito/privmx-bridge) project.
+installation instructions, go to the [PrivMX Bridge](https://github.com/simplito/privmx-bridge) project.
 To use this example you need a Solution, a Context within it and a user that has been added to that Context in
 the PrivMX Bridge.
 See the [Documentation](https://docs.privmx.dev) for relevant instructions.
