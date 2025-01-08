@@ -40,7 +40,7 @@ See the [Documentation](https://docs.privmx.dev) for relevant instructions.
 ## Errors
 
 `No context` message means that there are no existing Contexts in your PrivMX Bridge. Add a Context within your
-Solution [as described in PrivMX Bridge documentation](https://github.com/simplito/privmx-bridge)
+Solution as described in [PrivMX Bridge documentation](https://bridge.privmx.dev/#context-createcontext).
 
 ## About PrivMX
 
