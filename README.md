@@ -11,7 +11,7 @@ See the [Documentation](https://docs.privmx.dev) for relevant instructions.
 
 ### Supported Platforms
 
-- MacOS-aarch64 (supported)
+- MacOS-aarch64
 - Windows-x86_64 (coming soon)
 - Linux-x86_64 (coming soon)
 
@@ -25,9 +25,9 @@ See the [Documentation](https://docs.privmx.dev) for relevant instructions.
 ```
 
 2. Set required variables in Main.java file:
-    - platformUrl - URL to connect with your Privmx Bridge
+    - platformUrl - URL to connect with your PrivMX Bridge
     - solutionId - ID for solution of your project
-    - userPrivateKey - private key to log in to Privmx Bridge
+    - userPrivateKey - private key to log in to PrivMX Bridge
 
 3. Create Run Configuration and add the line below into its VM options:
 
