@@ -45,12 +45,13 @@ public class Main {
             String solutionId = "<SOLUTION_ID>"; // ID for solution of your project
             String userPrivateKey = "<PRIVATE_KEY>"; // private key to log into Privmx Bridge
             String userPublicKey = cryptoApi.derivePublicKey(userPrivateKey);
-            Connection connection = Connection.platformConnect(
+            Connection connection = Connection.connect(
                     userPrivateKey,
                     solutionId,
                     platformUrl
             );
             System.out.println("User connected\n");
+
             //--------------------------------------------------------------------------------------------------------------
 
             //--------------------------------------------------------------------------------------------------------------
