@@ -9,9 +9,6 @@ version = "2.2.0"
 
 privmxEndpointInstallJni {
     version = "2.2.0"
-    platforms = [
-            SupportedPlatforms.Darwin.arm64.platform,
-    ]
 }
 
 dependencies {
