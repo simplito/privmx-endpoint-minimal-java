@@ -31,30 +31,25 @@ public class Main {
         try {
             CryptoApi cryptoApi = new CryptoApi();
             DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            //--------------------------------------------------------------------------------------------------------------
-            // 1. Configure OpenSSL certs
-            //--------------------------------------------------------------------------------------------------------------
-            Connection.setCertsPath("cacert.pem");
-            System.out.println("Certs path set\n");
-            //--------------------------------------------------------------------------------------------------------------
 
             //--------------------------------------------------------------------------------------------------------------
-            // 2. Connect to platform
+            // 1. Connect to platform
             //--------------------------------------------------------------------------------------------------------------
             String platformUrl = "<PLATFORM_URL>"; // URL to connect with your Privmx Bridge
             String solutionId = "<SOLUTION_ID>"; // ID for solution of your project
             String userPrivateKey = "<PRIVATE_KEY>"; // private key to log into Privmx Bridge
             String userPublicKey = cryptoApi.derivePublicKey(userPrivateKey);
-            Connection connection = Connection.platformConnect(
+            Connection connection = Connection.connect(
                     userPrivateKey,
                     solutionId,
                     platformUrl
             );
             System.out.println("User connected\n");
+
             //--------------------------------------------------------------------------------------------------------------
 
             //--------------------------------------------------------------------------------------------------------------
-            // 3. List 10 starting Contexts in ascending order (sorted by creation order)
+            // 2. List 10 starting Contexts in ascending order (sorted by creation order)
             //--------------------------------------------------------------------------------------------------------------
             PagingList<Context> contextList = connection.listContexts(0, 10, "asc");
             if (contextList == null || contextList.readItems.isEmpty()) {
@@ -69,7 +64,7 @@ public class Main {
             //--------------------------------------------------------------------------------------------------------------
 
             //--------------------------------------------------------------------------------------------------------------
-            // 4. List 10 starting Threads
+            // 3. List 10 starting Threads
             //--------------------------------------------------------------------------------------------------------------
             ThreadApi threadApi = new ThreadApi(connection);
             PagingList<Thread> threadList = threadApi.listThreads(context.contextId, 0, 10, "asc");
@@ -105,7 +100,7 @@ public class Main {
             //--------------------------------------------------------------------------------------------------------------
 
             //--------------------------------------------------------------------------------------------------------------
-            // 5. List 10 newest messages
+            // 4. List 10 newest messages
             //--------------------------------------------------------------------------------------------------------------
             PagingList<Message> messageList = threadApi.listMessages(thread.threadId, 0, 10, "desc");
             if (messageList == null || messageList.readItems.isEmpty()) {
@@ -120,7 +115,7 @@ public class Main {
             //--------------------------------------------------------------------------------------------------------------
 
             //--------------------------------------------------------------------------------------------------------------
-            // 6. Send message
+            // 5. Send message
             //--------------------------------------------------------------------------------------------------------------
             String messageContent = "Hello World";
             threadApi.sendMessage(
@@ -133,7 +128,7 @@ public class Main {
             //--------------------------------------------------------------------------------------------------------------
 
             //--------------------------------------------------------------------------------------------------------------
-            // 7. List 10 newest messages
+            // 6. List 10 newest messages
             //--------------------------------------------------------------------------------------------------------------
             messageList = threadApi.listMessages(thread.threadId, 0, 10, "desc");
             if (messageList == null || messageList.readItems.isEmpty()) {
